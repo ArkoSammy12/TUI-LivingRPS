@@ -18,7 +18,7 @@ sealed class RPSEntity(val mass: Double, protected var _pos: Vec2d, protected va
 
         // Calculate attraction for this entity by comparing it with every other entity
         for (entity: RPSEntity in simState.entities) {
-            if (this.isRepelledBy(entity)) {
+            if (this.isNeutralTo(entity)) {
                 continue
             }
             val relativeDirection: Vec2d = entity._pos.relativeTo(entity._pos).toNormalized()
